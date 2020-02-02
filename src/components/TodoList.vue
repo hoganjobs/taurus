@@ -104,35 +104,38 @@ var Todo = AV.Object.extend('Todo');
                 AV.User.logOut();
                 this.$router.push('/')
             },
+            init() {
+                this.$nextTick(function () {
+                    // 初始化
+                    todolists = [];
+                    // 获取当前用户及用户ID
+                    var currentUser = AV.User.current();
+                    var currentUserId = currentUser['id'];
+    
+                    // 查找实例化
+                    var query = new AV.Query('Todo');
+                    // 在 Todo 类里查找 userID 为当前用户ID的对象
+                    query.equalTo('userID', currentUserId);
+    
+                    // query.descending('createdAt');
+                    query.find().then(function (lists) {
+                        // 遍历查找结果
+                        lists.forEach(function(list) {
+                            // 获取对象的 todolist 文本内容
+                            let todolist = list.get('todoList')
+                            // 将每条 todo 添加到 todolist数组
+                            todolists.push(todolist);
+                        })
+                    })
+                    // 将数组赋值给 data 里的 todos
+                    this.todos = todolists;
+                    console.log('this.todos' + this.todos)
+    
+                });
+            }
         },
         mounted () {
-            this.$nextTick(function () {
-                // 初始化
-                todolists = [];
-                // 获取当前用户及用户ID
-                var currentUser = AV.User.current();
-                var currentUserId = currentUser['id'];
-
-                // 查找实例化
-                var query = new AV.Query('Todo');
-                // 在 Todo 类里查找 userID 为当前用户ID的对象
-                query.equalTo('userID', currentUserId);
-
-                // query.descending('createdAt');
-                query.find().then(function (lists) {
-                    // 遍历查找结果
-                    lists.forEach(function(list) {
-                        // 获取对象的 todolist 文本内容
-                        let todolist = list.get('todoList')
-                        // 将每条 todo 添加到 todolist数组
-                        todolists.push(todolist);
-                    })
-                })
-                // 将数组赋值给 data 里的 todos
-                this.todos = todolists;
-                console.log('this.todos' + this.todos)
-
-             });
+            // this.init();
         },
     }
 </script>
