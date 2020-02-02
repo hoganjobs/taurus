@@ -22,12 +22,12 @@
 
 <script>
 import AV from 'leancloud-storage';
-var APP_ID = 'JB6g2pSnF177yT8FCFReE0ae-MdYXbMMI';
-var APP_KEY = 'X0NNKO7j7U5tgkNRxS4ly4L3';
-AV.init({
-    appId: APP_ID,
-    appKey: APP_KEY
-});
+// var APP_ID = 'JB6g2pSnF177yT8FCFReE0ae-MdYXbMMI';
+// var APP_KEY = 'X0NNKO7j7U5tgkNRxS4ly4L3';
+// AV.init({
+//     appId: APP_ID,
+//     appKey: APP_KEY
+// });
 export default {
     data() {
         return {
