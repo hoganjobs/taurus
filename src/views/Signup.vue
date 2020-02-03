@@ -42,7 +42,7 @@ export default {
             let username = this.signupUsername;
             let password = this.signupPassword;
             let email = this.emailAddress;
-            console.log(username, password, email);
+            window.console.log(username, password, email);
 
             // leancloud 有自己的 User 对象
             // 实例化
@@ -54,7 +54,7 @@ export default {
             user.setEmail(email);
             // leancloud 提供的注册方法
             user.signUp().then(function (loginedUser) {
-                console.log(loginedUser)
+                window.console.log(loginedUser)
                 // 注册成功后的异步函数
                 // 就是成功之后才会执行的
                 // 没有成功就不会执行这里
