@@ -55,15 +55,15 @@ export default {
           username: username,
           password: password
         }
-        console.log("login")
+        window.console.log("login")
         login(loginform).then(res => {
           if (res) {
-            console.log("OK", res)
-            console.log(res._isCurrentUser)
+            window.console.log("OK", res)
+            window.console.log(res._isCurrentUser)
           }
           // self.$router.push("/home");
         }).catch(err => {
-          console.log(err)
+          window.console.log(err)
         });
       }
       // 同样用 leancloud 的登陆方法

@@ -1,16 +1,34 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+/* Layout */
+import Layout from '@/layout'
+
 import Login from '../views/Login.vue'
 import Signup from '../views/Signup.vue'
+import Jetsod from '../views/Jetsod.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Home
+    component: Layout,
+    redirect: '/home',
+    name: 'main',
+    children: [
+      {
+        path: 'home',
+        name: 'Home',
+        component: () => import('@/views/Home.vue'),
+        meta: { title: '首页', icon: 'form' }
+      },
+      {
+        path: 'account',
+        name: 'Account',
+        component: () => import('@/views/Account.vue'),
+        meta: { title: '预警分析', icon: 'form' }
+      },
+    ]
   },
   {
     path: '/login',
@@ -21,6 +39,11 @@ const routes = [
     path: '/signup',
     name: 'signup',
     component: Signup
+  },
+  {
+    path: '/jetsod',
+    name: 'jetsod',
+    component: Jetsod
   },
   {
     path: '/about',
