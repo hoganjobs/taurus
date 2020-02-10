@@ -41,7 +41,7 @@ export default {
     return {
       defaultImg: "https://gw.alicdn.com/tfs/TB1hJ2KX6ihSKJjy0FlXXadEXXa-254-318.png",
       price: "20",
-      num: "2.1",
+      num: "2.6",
       title: "好吉利酒精消毒湿巾75%乙醇含量杀菌抑菌【2月20日发完】",
       desc: "好吉利酒精消毒湿巾75%乙醇含量杀菌抑菌"
     };
