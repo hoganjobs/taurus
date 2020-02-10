@@ -6,6 +6,12 @@ import Layout from '@/layout'
 import Login from '../views/Login.vue'
 import Signup from '../views/Signup.vue'
 import Jetsod from '../views/Jetsod.vue'
+import Detail from '../views/Detail.vue'
+import Address from '../views/Address.vue'
+import Collection from '../views/Collection.vue'
+import Deliver from '../views/Deliver.vue'
+import Payment from '../views/Payment.vue'
+import Record from '../views/Record.vue'
 
 Vue.use(VueRouter)
 
@@ -41,18 +47,40 @@ const routes = [
     component: Signup
   },
   {
+    path: '/detail',
+    name: 'detail',
+    component: Detail
+  },
+  {
     path: '/jetsod',
     name: 'jetsod',
     component: Jetsod
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/address',
+    name: 'address',
+    component: Address
+  },
+  {
+    path: '/collection',
+    name: 'collection',
+    component: Collection
+  },
+  {
+    path: '/deliver',
+    name: 'deliver',
+    component: Deliver
+  },
+  {
+    path: '/payment',
+    name: 'payment',
+    component: Payment
+  },
+  {
+    path: '/record',
+    name: 'record',
+    component: Record
+  },
 ]
 
 const router = new VueRouter({
