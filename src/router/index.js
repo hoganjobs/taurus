@@ -8,6 +8,7 @@ import Signup from '../views/Signup.vue'
 import Jetsod from '../views/Jetsod.vue'
 import Detail from '../views/Detail.vue'
 import Address from '../views/Address.vue'
+import AddressEdit from '../views/AddressEdit.vue'
 import Collection from '../views/Collection.vue'
 import Deliver from '../views/Deliver.vue'
 import Payment from '../views/Payment.vue'
@@ -60,6 +61,11 @@ const routes = [
     path: '/address',
     name: 'address',
     component: Address
+  },
+  {
+    path: '/address_edit',
+    name: 'address_edit',
+    component: AddressEdit
   },
   {
     path: '/collection',

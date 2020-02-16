@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import { 
   Button,
+  Toast,
   Tabbar,
   TabbarItem,
   Swipe,
@@ -16,11 +17,14 @@ import {
   Icon,
   GoodsAction,
   GoodsActionIcon,
-  GoodsActionButton
+  GoodsActionButton,
+  AddressEdit,
+  AddressList
 } from 'vant';
 
 
 Vue.use(Button);
+Vue.use(Toast);
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(Swipe);
@@ -35,5 +39,7 @@ Vue.use(CellGroup);
 Vue.use(NavBar);
 Vue.use(Icon);
 Vue.use(GoodsAction);
-Vue.use(GoodsActionButton);
 Vue.use(GoodsActionIcon);
+Vue.use(GoodsActionButton);
+Vue.use(AddressEdit);
+Vue.use(AddressList);
