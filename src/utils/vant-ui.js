@@ -1,5 +1,23 @@
 import Vue from 'vue'
-import { Button, Tabbar, TabbarItem, Swipe, SwipeItem, Lazyload, Image, List, Card, Tag, Cell, CellGroup, NavBar, Icon, GoodsAction, GoodsActionIcon, GoodsActionButton } from 'vant';
+import { 
+  Button,
+  Tabbar,
+  TabbarItem,
+  Swipe,
+  SwipeItem,
+  Lazyload,
+  Image,
+  List,
+  Card,
+  Tag,
+  Cell,
+  CellGroup,
+  NavBar,
+  Icon,
+  GoodsAction,
+  GoodsActionIcon,
+  GoodsActionButton
+} from 'vant';
 
 
 Vue.use(Button);
