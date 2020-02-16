@@ -1,22 +1,23 @@
 <template>
-  <div class="item">
-    <div class="shopList_left">
-        <img :src="item.imgUrl" alt="">
+  <van-card
+    :num="item.price + '万件'"
+    price="2.00"
+    desc=""
+    :title="item.title"
+    :thumb="item.image"
+    @click="toDetail(item.id)"
+  > 
+    <div slot="desc">
+      <van-image width=24 height=24 :round="true" :src="item.image" />
+      <van-image width=24 height=24 :round="true" :src="item.image" />
     </div>
-    <div class="shopList_right">
-      <p class="shopList_right_tit">{{item.title}}</p>
-      <div class="shopList_right_imgList">
-          <div>
-              <img :src="item.left" alt="">
-          </div>
-          <div>
-              <img :src="item.right" alt="">
-          </div>
-      </div>
-      <p class="shopList_right_price">￥{{item.price}}</p>
-      <p class="shopList_right_numbers">已拼{{item.number}}万件</p>
+    <div slot="tags">
+      <span class="dtag">全网团购推荐</span>
     </div>
-  </div>
+    <div slot="price">
+      <div><span class="unit">¥</span><span class="price">{{item.price}}</span></div>
+    </div>
+  </van-card>
 </template>
 
 <script>
@@ -34,76 +35,31 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.item{
-    width: 100%;
-    margin-bottom: 20px; 
-    list-style: none;
-    height: 318px;
-    .shopList_left{
-        float: left;
-        height: 318px;
-        width: 254px;
-        img{
-          display: block;
-          width: 100%;
-          height: 100%;
-        }
-    }
-    .shopList_right{
-        float: left;
-        width: 496px;
-        height: 318px;
-        padding: 0 10px;
-        box-sizing: border-box;
-        position: relative;
-        .shopList_right_tit{
-            margin: 0;
-            text-align: left;
-            font-size: 25px;
-        }
-        .shopList_right_imgList{
-            float: left;
-            margin: 25px 0;
-            height: 30px;
-            position: relative;
-            div{
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-                img{
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                      border-radius: 50%;
-                }
-            }
-            div:first-child{
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 10
-            }
-            div:nth-child(2){
-                position: absolute;
-                top: 0;
-                left: 15px;
-                z-index: 1
-            }
-        }
-        .shopList_right_price{
-            position: absolute;
-            bottom: 40px;
-            left: 5px;
-            font-size: 30px;
-            color: red
-        }
-        .shopList_right_numbers{
-            position: absolute;
-            bottom: 0px;
-            left: 5px;
-            font-size: 25px;
-            color: #cccccc;
-        }
-    }
+.van-card {
+  padding: 0 16px 0 8px;
+  background-color: #fff;
+  .van-card__thumb {
+    width: 128px;
+    height: 160px;
+  }
+  .van-card__title {
+    max-height: 48px;
+    font-size: 16px;
+    line-height: normal;
+    // font-weight: 700;
+  }
+}
+.price {
+  font-size: 18px;
+  color: #e3422d;
+}
+.unit {
+  font-size: 12px;
+  color: #e3422d;
+}
+.dtag {
+  padding: 2px 4px;
+  background-color: #fcf0ed;
+  color: #b63525;
 }
 </style>

@@ -17,16 +17,16 @@
       finished-text="没有更多了"
       @load="onLoad"
     >
-      <!-- <good-card v-for="(item, index) in list" :key="index" :item="item"></good-card> -->
-      <van-card
-         v-for="(item, index) in products" :key="index"
+      <good-card v-for="(item, index) in products" :key="index" :item="item"></good-card>
+      <!-- <van-card
+        v-for="(item, index) in products" :key="index"
         :num="item.price + '万件'"
         price="2.00"
         desc=""
         :title="item.title"
         :thumb="item.image"
         @click="toDetail(item.id)"
-      >
+      > 
         <div slot="desc">
           <van-image width=24 height=24 :round="true" :src="item.image" />
           <van-image width=24 height=24 :round="true" :src="item.image" />
@@ -37,7 +37,7 @@
         <div slot="price">
           <div><span class="unit">¥</span><span class="price">{{item.price}}</span></div>
         </div>
-      </van-card>
+      </van-card> -->
     </van-list>
   </div>
 </template>
@@ -45,14 +45,14 @@
 <script>
 // @ is an alias to /src
 // import TodoList from "@/components/TodoList.vue";
-// import GoodCard from "@/components/GoodCard.vue";
+import GoodCard from "@/components/GoodCard.vue";
 import { getProduct } from '@/api/product'
 
 export default {
   name: 'home',
   components: {
     // TodoList
-    // GoodCard
+    GoodCard
   },
   data() {
     return {

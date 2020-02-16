@@ -12,7 +12,7 @@
       <span class="name">{{name}}</span>
     </div>
     <div>
-      <van-cell title="我的收藏" to="/address" is-link>
+      <van-cell title="我的收藏" to="/collection" is-link>
           <van-icon
             slot="icon"
             name="shop-collect"
@@ -21,7 +21,7 @@
             style="line-height: inherit; margin-right: 6px"
           />
       </van-cell>
-      <van-cell title="收货地址" to="/collection" is-link>
+      <van-cell title="收货地址" to="/address" is-link>
         <van-icon
           slot="icon"
           name="location"
