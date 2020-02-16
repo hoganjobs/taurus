@@ -19,17 +19,17 @@
     >
       <!-- <good-card v-for="(item, index) in list" :key="index" :item="item"></good-card> -->
       <van-card
-         v-for="(item, index) in list" :key="index"
-        :num="item.number + '万件'"
+         v-for="(item, index) in products" :key="index"
+        :num="item.price + '万件'"
         price="2.00"
         desc=""
         :title="item.title"
-        :thumb="item.imgUrl"
+        :thumb="item.image"
         @click="toDetail(item.id)"
       >
         <div slot="desc">
-          <van-image width=24 height=24 :round="true" :src="item.left" />
-          <van-image width=24 height=24 :round="true" :src="item.right" />
+          <van-image width=24 height=24 :round="true" :src="item.image" />
+          <van-image width=24 height=24 :round="true" :src="item.image" />
         </div>
         <div slot="tags">
           <span class="dtag">全网团购推荐</span>
@@ -46,6 +46,7 @@
 // @ is an alias to /src
 // import TodoList from "@/components/TodoList.vue";
 // import GoodCard from "@/components/GoodCard.vue";
+import { getProduct } from '@/api/product'
 
 export default {
   name: 'home',
@@ -81,7 +82,27 @@ export default {
         }
       ],
       loading: false,
-      finished: false
+      finished: false,
+      productData: []
+    }
+  },
+  computed: {
+    products() {
+      let list = [];
+      if (this.productData.length) {
+        this.productData.forEach(el => {
+          const attr = el.attributes;
+          const url = attr.image.attributes.url || ''
+          let obj = {
+            title: attr.title || '',
+            description: attr.description || '',
+            price: attr.price || 0,
+            image: url,
+          }
+          list.push(obj);
+        });
+      }
+      return list
     }
   },
   methods: {
@@ -103,7 +124,24 @@ export default {
     },
     toDetail(id) {
       this.$router.push({ path: '/detail', query:{ id: id } });
+    },
+    getList() {
+      getProduct().then(res => {
+        if (res) {
+          window.console.log("list: ", res)
+          this.productData = res;
+
+          setTimeout(() => {
+            console.log(this.products)
+          }, 1000)
+        }
+      }).catch(err => {
+        window.console.log(err)
+      });
     }
+  },
+  mounted () {
+    this.getList();
   },
 }
 </script>
