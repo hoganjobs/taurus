@@ -30,7 +30,7 @@
           style="line-height: inherit; margin-right: 6px"
         />
       </van-cell>
-      <van-cell title="浏览记录" to="/deliver" is-link>
+      <van-cell title="浏览记录" to="/record" is-link>
         <van-icon
           slot="icon"
           name="label"
@@ -39,7 +39,7 @@
           style="line-height: inherit; margin-right: 6px"
         />
       </van-cell>
-      <van-cell title="发货记录" to="/payment" is-link>
+      <van-cell title="发货记录" to="/deliver" is-link>
         <van-icon
           slot="icon"
           name="gift"
@@ -48,7 +48,7 @@
           style="line-height: inherit; margin-right: 6px"
         />
       </van-cell>
-      <van-cell title="支付信息" to="/record" is-link>
+      <van-cell title="支付信息" to="/payment" is-link>
         <van-icon
           slot="icon"
           name="bill"
