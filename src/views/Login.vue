@@ -27,9 +27,9 @@
         placeholder="Password"
         required
       />
-      <!-- <button v-on:click="login" type="submit">登陆</button> -->
+      <button v-on:click="login" type="submit">登陆</button>
     </form>
-    <button @click="login" type="submit">登陆</button>
+    <!-- <button @click="login" type="submit">登陆</button> -->
   </div>
 </template>
 
