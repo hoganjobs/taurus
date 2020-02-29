@@ -19,7 +19,9 @@ import {
   GoodsActionIcon,
   GoodsActionButton,
   AddressEdit,
-  AddressList
+  AddressList,
+  Form,
+  Field,
 } from 'vant';
 
 
@@ -43,3 +45,5 @@ Vue.use(GoodsActionIcon);
 Vue.use(GoodsActionButton);
 Vue.use(AddressEdit);
 Vue.use(AddressList);
+Vue.use(Form);
+Vue.use(Field);
