@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     // onSubmit(values) {
-    //   console.log("submit", values);
+    //   window.console.log("submit", values);
     // },
     login1() {
       let self = this;
@@ -92,54 +92,54 @@ export default {
       if (this.isRecede) {
         this.error("有用户在夏季八点");
       }
-      console.log("start login");
+      window.console.log("start login");
       // 这是一个发送验证码的接口();
       // let result = await 这是一个发送验证码的接口(this.phone);
       let result = {code:1};
-      console.log("验证码接口 result=", result);
+      window.console.log("验证码接口 result=", result);
       if (result.code == 1) {
         //成功登录
-        console.log("请在手机短信查收验证码");
+        window.console.log("请在手机短信查收验证码");
         this.isRecede = true;
         //开始获取验证码倒计时
         this.recede();
       } else {
         //登录失败
-        console.log("获取验证码失败");
+        window.console.log("获取验证码失败");
       }
     },
     //开始登录
     async onLogin() {
       if (!this.phone) {
-        console.log('请填写手机号');
+        window.console.log('请填写手机号');
         this.$toast("请填写手机号");
       } else if (!this.code) {
-        console.log('请填写验证码');
+        window.console.log('请填写验证码');
         this.$toast("请填写验证码");
       } else if (!/^1[345789]\d{9}$/.test(this.phone)) {
-        console.log('请检查手机号是否正确');
+        window.console.log('请检查手机号是否正确');
         this.$toast("请检查手机号是否正确");
       } else if (!/^[0-9]{4}$/.test(this.code)) {
-        console.log('验证码不正确');
+        window.console.log('验证码不正确');
         this.$toast("验证码不正确");
       } else {
         // let result = await 这是一个登录的接口(this.phone, this.code);
         let result = {};
         result.code = 1;
-        console.log(result);
+        window.console.log(result);
         if (result.code == 1) {
-          console.log("登录成功");
+          window.console.log("登录成功");
           this.$router.replace({path: '/'})
         } else {
           this.code = "";
-          console.log("登录失败");
+          window.console.log("登录失败");
         }
       }
     },
     //获取验证码倒计时定时器
     recede() {
       this.timer = setInterval(() => {
-        console.log("开始定时器，", this.timingBoard);
+        window.console.log("开始定时器，", this.timingBoard);
         this.codeText = `重新发送 ${this.timingBoard}s`;
         this.timingBoard--;
         if (this.timingBoard < 0) {

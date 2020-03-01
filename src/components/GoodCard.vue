@@ -30,7 +30,12 @@ export default {
         return {};
       }
     },
-  } 
+  },
+  methods: {
+    toDetail(id) {
+      this.$router.push({ path: '/detail', query:{ id: id } });
+    },
+  },
 }
 </script>
 
@@ -39,14 +44,13 @@ export default {
   padding: 0 16px 0 8px;
   background-color: #fff;
   .van-card__thumb {
-    width: 128px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
   }
   .van-card__title {
     max-height: 48px;
-    font-size: 16px;
+    font-size: 14px;
     line-height: normal;
-    // font-weight: 700;
   }
 }
 .price {

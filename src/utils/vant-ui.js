@@ -7,6 +7,7 @@ import {
   Swipe,
   SwipeItem,
   Lazyload,
+  Loading,
   Image,
   List,
   Card,
@@ -32,6 +33,7 @@ Vue.use(TabbarItem);
 Vue.use(Swipe);
 Vue.use(SwipeItem);
 Vue.use(Lazyload);
+Vue.use(Loading);
 Vue.use(Image);
 Vue.use(List);
 Vue.use(Card);

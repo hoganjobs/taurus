@@ -103,7 +103,7 @@ export default {
           this.productData = res;
 
           setTimeout(() => {
-            console.log(this.products)
+            window.console.log(this.products)
           }, 1000)
         }
       }).catch(err => {

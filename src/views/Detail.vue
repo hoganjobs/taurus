@@ -6,9 +6,12 @@
         width="100%"
         height="300"
         fit="fill"
-        lazy-load
         :src="defaultImg"
-      />
+      >
+        <template v-slot:loading>
+          <van-loading type="spinner" size="20" />
+        </template>
+      </van-image>
       <div class="goods-top">
         <div>
           <span class="goods-unit">¥</span><span class="goods-price">{{price}}</span>
@@ -24,6 +27,21 @@
         <div class="goods-d-t">商品描述</div>
         <div class="goods-desc">{{desc}}</div>
       </div>
+      <div class="goods-cnt">
+        <van-image
+          v-for="(item, index) in imgs"
+          :key="index"
+          width="100%"
+          height="300"
+          fit="fill"
+          lazy-load
+          :src="item.url"
+        >
+          <template v-slot:loading>
+            <van-loading type="spinner" size="20" />
+          </template>
+        </van-image>
+      </div>
     </div>
     <van-goods-action>
       <van-goods-action-icon icon="chat-o" text="客服" color="#07c160" />
@@ -35,22 +53,49 @@
 </template>
 
 <script>
+import { getProductDetail } from '@/api/product'
+
 export default {
   name: "Detail",
   data() {
     return {
-      defaultImg: "https://gw.alicdn.com/tfs/TB1hJ2KX6ihSKJjy0FlXXadEXXa-254-318.png",
-      price: "20",
+      defaultImg: "",
+      price: "0",
       num: "2.6",
-      title: "好吉利酒精消毒湿巾75%乙醇含量杀菌抑菌【2月20日发完】",
-      desc: "好吉利酒精消毒湿巾75%乙醇含量杀菌抑菌"
+      title: "",
+      desc: "",
+      productId: '',
+      
+      imgs: []
     };
   },
   methods: {
     onClickLeft() {
       this.$router.push({ path: "/" });
-    }
-  }
+    },
+    getDetail() {
+      window.console.log(this.productId);  
+      const id = this.productId;
+      getProductDetail(id).then(res => {
+        if (res) {
+          window.console.log("detail: ", res)
+          const prod = res[0].attributes;
+          this.defaultImg = prod.cover;
+          this.title = prod.title;
+          this.desc = prod.description;
+          this.price = prod.price;
+          this.imgs = prod.imgs || [];
+        }
+      }).catch(err => {
+        window.console.log(err)
+      });
+    },
+  },
+  mounted () {
+    let id = this.$route.query.id || '';
+    this.productId = id;
+    this.getDetail();
+  },
 };
 </script>
 
@@ -58,6 +103,7 @@ export default {
 .goods {
   margin: 0 auto;
   padding: 0 5px;
+  padding-bottom: 50px;
   .goods-top {
     padding: 10px 5px;
     display: flex;
@@ -83,21 +129,26 @@ export default {
   .goods-t {
     margin-top: 20px;
     font-size: 20px;
-    color: 333;
+    color: #333;
   }
   .goods-t-b {
-    padding: 10px 4px;
+    margin-top: 5px;
+    padding: 10px 12px;
     background-color: #ededed;
     border-radius: 8px;
     .goods-d-t {
       font-size: 16px;
-      color: 333;
+      color: #333;
     }
     .goods-desc {
       margin-top: 6px;
       font-size: 14px;
-      color: 333;
+      line-height: 24px;
+      color: #666;
     }
+  }
+  .goods-cnt {
+    margin-top: 10px;
   }
 }
 </style>

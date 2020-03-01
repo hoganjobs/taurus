@@ -71,13 +71,14 @@ export default {
       let list = [];
       if (this.productData.length) {
         this.productData.forEach(el => {
+          const id = el.id || '';
           const attr = el.attributes;
-          const url = attr.image.attributes.url || ''
           let obj = {
+            id: id,
             title: attr.title || '',
             description: attr.description || '',
             price: attr.price || 0,
-            image: url,
+            image: attr.cover || '',
           }
           list.push(obj);
         });
