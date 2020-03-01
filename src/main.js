@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import './utils/vant-ui'
 import './assets/css/common.css'
+import '@/permission' // permission control
 
 Vue.config.productionTip = false
 

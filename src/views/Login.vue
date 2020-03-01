@@ -122,15 +122,18 @@ export default {
       } else if (!/^[0-9]{4}$/.test(this.code)) {
         console.log('验证码不正确');
         this.$toast("验证码不正确");
-      }
-      // let result = await 这是一个登录的接口(this.phone, this.code);
-      let result = false;
-      console.log(result);
-      if (result.code == 1) {
-        console.log("登录成功");
       } else {
-        this.code = "";
-        console.log("登录失败");
+        // let result = await 这是一个登录的接口(this.phone, this.code);
+        let result = {};
+        result.code = 1;
+        console.log(result);
+        if (result.code == 1) {
+          console.log("登录成功");
+          this.$router.replace({path: '/'})
+        } else {
+          this.code = "";
+          console.log("登录失败");
+        }
       }
     },
     //获取验证码倒计时定时器
