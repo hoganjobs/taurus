@@ -102,10 +102,6 @@ export default {
         if (res) {
           window.console.log("list: ", res)
           this.productData = res;
-
-          setTimeout(() => {
-            window.console.log(this.products)
-          }, 1000)
         }
       }).catch(err => {
         window.console.log(err)

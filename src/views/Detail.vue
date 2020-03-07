@@ -61,7 +61,7 @@ export default {
     return {
       defaultImg: "",
       price: "0",
-      num: "2.6",
+      num: "0",
       title: "",
       desc: "",
       productId: '',
