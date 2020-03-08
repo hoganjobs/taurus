@@ -43,10 +43,10 @@ export const login = ({username, password}) => {
 //     // }
 // }
 
-// export const getUsersByUids = (uids = []) => {
-//     const query = new db.Query('_User')
-//     return query.containsAll('objectId', uids).find()
-// }
+export const getUsersByUids = (uids = []) => {
+    const query = new db.Query('_User')
+    return query.containsAll('objectId', uids).find()
+}
 
 // export const getOne = id => {
 //     const query = new db.Query('_User')

@@ -65,7 +65,6 @@ export default {
       title: "",
       desc: "",
       productId: '',
-      
       imgs: []
     };
   },
